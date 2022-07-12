@@ -25,10 +25,10 @@ class Prison:
                 next_number = self.prison_cells[next_number-1] 
                 loop.append(next_number)
             if not steps>= self.number/2:
-                print(loop)
+                #print(loop)
                 loops.append(loop)
             else:
-                print(x, ":Not found;", loop)
+                #print(x, ":Not found;", loop)
                 return False
         
         return True
@@ -42,6 +42,7 @@ class Prison:
 def test_prob(size):
     found_loop = 0
     for x in range(0,10000):
+        print(x)
         prison = Prison(size)
         if prison.find_loops():
             found_loop = found_loop +1
@@ -52,4 +53,4 @@ if __name__ == "__main__":
     prison.print_prison()
     prison.find_loops()
 
-    test_prob(1000)
+    test_prob(100)
