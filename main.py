@@ -1,5 +1,7 @@
 import numpy as np
 
+# Prison class
+# Used to create the prison and manage all its functions, expecially to find loops
 class Prison:
 
     def __init__(self, number):
@@ -7,11 +9,13 @@ class Prison:
         self.prison_cells = self.create_prison_cells(number)
         #self.prison_cells = np.array([7,4,6,8,1,3,5,2])
 
+    # Create Prison
     def create_prison_cells(self, number):
         base_array = np.arange(1, number+1,1,dtype=int)
         np.random.shuffle(base_array)
         return base_array
-
+    # Finds loops
+    # Returns true if it founds one, otherwise false
     def find_loops(self):
         loops = []
         for x in range(0,len(self.prison_cells)):
@@ -32,13 +36,14 @@ class Prison:
                 return False
         
         return True
-    
 
+    
     def print_prison(self):
         print(self.prison_cells)
 
 
-
+# Function to get the probability to find loops
+# Param: prision size
 def test_prob(size):
     found_loop = 0
     for x in range(0,10000):
